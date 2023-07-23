@@ -35,11 +35,11 @@ function isGame() {
     let computerScore = 0;
     function isBattle(callback1, callback2) {
       while (userScore <= 3 || computerScore <= 3) {
-        switch (callback1) {
+        switch (callback1()) {
           case 'rock':
-            if (moveComputer === 'rock') {
+            if (callback2() === 'rock') {
               return isGame();
-            } if (moveComputer === 'scissors') {
+            } if (callback2() === 'scissors') {
               userScore += 1;
               return alert(`You won this round: Current count is : ${user}: ${userScore}: Computer ${computerScore}`);
             }
@@ -47,9 +47,9 @@ function isGame() {
             return alert(`You won this round: Current count is : ${user}: ${userScore}: Computer ${computerScore}`);
   
           case 'scissors':
-            if (moveComputer === 'scissors') {
+            if (callback2() === 'scissors') {
               return isGame();
-            } if (moveComputer === 'paper') {
+            } if (callback2() === 'paper') {
               userScore += 1;
               return alert(`You won this round: Current count is : ${user}: ${userScore}: Computer ${computerScore}`);
             }
@@ -57,9 +57,9 @@ function isGame() {
             return alert(`You won this round: Current count is : ${user}: ${userScore}: Computer ${computerScore}`);
   
           case 'paper':
-            if (moveComputer === 'paper') {
+            if (callback2() === 'paper') {
               return isGame();
-            } if (moveComputer === 'rock') {
+            } if (callback2() === 'rock') {
               userScore += 1;
               return alert(`You won this round: Current count is : ${user}: ${userScore}: Computer ${computerScore}`);
             }
